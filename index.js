@@ -793,15 +793,16 @@ const warframeinfolist = [
     }
 ]
 
+require('dotenv').config()
 const express = require('express');
 const app = express();
-const PORT = 8080;
+const PORT = process.env.PORT;
 
 app.use(express.json())
 
 app.listen(
     PORT,
-    () => console.log("IT'S ALIVE")
+    () => console.log("Listening on port", PORT)
 )
 
 app.get("/list", (req, res) => {
