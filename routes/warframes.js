@@ -1,6 +1,7 @@
 // Dependencies
 const express = require("express")
 const router = express.Router()
+const Warframe = require("../models/warframeModel")
 
 // GET All Warframes
 router.get("/", (req, res) => {
