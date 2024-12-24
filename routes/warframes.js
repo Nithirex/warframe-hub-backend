@@ -1,41 +1,28 @@
 // Dependencies
 const express = require("express")
 const router = express.Router()
-const Warframe = require("../models/warframeModel")
+const {
+    getWarframes,
+    getWarframe,
+    createWarframe,
+    deleteWarframe,
+    updateWarframe
+} = require("../controllers/warframeController")
 
-// GET All Warframes
-router.get("/", (req, res) => {
-    res.status(200).send({
-        mssg: "IT GOT ALL"
-    })
-})
+// GET all Warframes
+router.get("/", getWarframes)
 
 // GET one
-router.get("/:id", (req, res) => {
-    res.status(200).send({
-        mssg: "IT GOT ONE"
-    })
-})
+router.get("/:id", getWarframe)
 
 // POST one
-router.post("/", (req, res) => {
-    res.status(200).send({
-        mssg: "IT POSTED ONE"
-    })
-})
+router.post("/", createWarframe)
+
 // DELETE one
-router.delete("/:id", (req, res) => {
-    res.status(200).send({
-        mssg: "IT DELETED ONE"
-    })
-})
+router.delete("/:id", deleteWarframe)
 
 // PATCH one
-router.patch("/:id", (req, res) => {
-    res.status(200).send({
-        mssg: "IT PATCHED ONE"
-    })
-})
+router.patch("/:id", updateWarframe)
 
 // Exports
 module.exports = router
