@@ -6,77 +6,77 @@ const Schema = mongoose.Schema
 
 // Making Schema
 const warframeSchema = new Schema({
-    name: {
+    "name": {
         type: String,
         required: true
     },
-    description: {
+    "description": {
         type: String,
         required: true
     },
-    aquisition: {
+    "aquisition": {
         type: String,
         required: true
     },
-    primed: {
+    "primed": {
         type: String,
         required: true
     },
-    parts: {
-        neuroptics: {
-            aquisition: {
+    "parts": {
+        "neuroptics": {
+            "aquisition": {
                 type: String,
                 required: true
             },
-            materials: [{
-                name: {
+            "materials": [{
+                "name": {
                     type: String,
                     required: true
                 },
-                number: {
+                "number": {
                     type: Number,
                     required: true
                 }
             }]
         },
-        chassis: {
-            aquisition: {
+        "chassis": {
+            "aquisition": {
                 type: String,
                 required: true
             },
-            materials: [{
-                name: {
+            "materials": [{
+                "name": {
                     type: String,
                     required: true
                 },
-                number: {
+                "number": {
                     type: Number,
                     required: true
                 }
             }]
         },
-        systems: {
-            aquisition: {
+        "systems": {
+            "aquisition": {
                 type: String,
                 required: true
             },
-            materials: [{
-                name: {
+            "materials": [{
+                "name": {
                     type: String,
                     required: true
                 },
-                number: {
+                "number": {
                     type: Number,
                     required: true
                 }
             }]
         },
-        material: {
-            name: {
+        "material": {
+            "name": {
                 type: String,
                 required: true
             },
-            number: {
+            "number": {
                 type: Number,
                 required: true
             },
