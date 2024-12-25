@@ -17,10 +17,15 @@ const getWarframe = (req, res) => {
 }
 
 // Create one
-const createWarframe = (req, res) => {
-    res.status(200).send({
-        mssg: "IT DELETED ONE"
-    })
+const createWarframe = async (req, res) => {
+    try {
+        const warframe = await Warframe.create(req.body)
+        res.status(200).send(warframe)
+    } catch (err) {
+        res.status(400).send({
+            error: err.message
+        })
+    }
 }
 
 // Delete one
