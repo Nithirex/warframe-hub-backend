@@ -793,18 +793,30 @@ const warframeinfolist = [
     }
 ]
 
+// Dependencies
 require('dotenv').config()
 const express = require('express');
+const mongoose = require('mongoose')
+
+// Express App
 const app = express();
+
+// Initializing PORT
 const PORT = process.env.PORT;
 
+// Middleware to parse JSON
 app.use(express.json())
-
-app.listen(
-    PORT,
-    () => console.log("Listening on port", PORT)
-)
 
 app.get("/list", (req, res) => {
     res.status(200).send(warframeinfolist)
 });
+
+// Connect to MongoDB
+mongoose.connect(process.env.MONGO_URI)
+    .then(() => {
+        app.listen(
+            PORT,
+            () => console.log("Connected to MongoDB & Listening on port", PORT)
+        )
+    })
+    .catch((err) => { console.log(err) })
