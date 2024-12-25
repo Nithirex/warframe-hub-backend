@@ -3,10 +3,9 @@ const Warframe = require("../models/warframeModel")
 
 
 // Get all Warframes
-const getWarframes = (req, res) => {
-    res.status(200).send({
-        mssg: "IT GOT ALL"
-    })
+const getWarframes = async (req, res) => {
+    const warframes = await Warframe.find({}).sort({ name: 1 })
+    res.status(200).send(warframes)
 }
 
 // Get one
