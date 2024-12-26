@@ -13,16 +13,16 @@ const {
 router.get("/", getWarframes)
 
 // GET one
-router.get("/:id", getWarframe)
+router.get("/:name", getWarframe)
 
 // POST one
 router.post("/", createWarframe)
 
 // DELETE one
-router.delete("/:id", deleteWarframe)
+router.delete("/:name", deleteWarframe)
 
 // PATCH one
-router.patch("/:id", updateWarframe)
+router.patch("/:name", updateWarframe)
 
 // Exports
 module.exports = router
