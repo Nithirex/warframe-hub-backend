@@ -11,8 +11,7 @@ const getWarframes = async (req, res) => {
 // Get one
 const getWarframe = async (req, res) => {
     const { name } = req.params
-    const tempWarframe = await Warframe.find({ name })
-    const warframe = tempWarframe[0]
+    const warframe = await Warframe.findOne({ name })
     if (!warframe) {
         return res.status(404).send({ "error": "Can not find warframe with that name" })
     }
