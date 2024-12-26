@@ -19,8 +19,7 @@ const warframeSchema = new Schema({
         required: true
     },
     "primed": {
-        type: String,
-        required: true
+        type: String
     },
     "parts": {
         "neuroptics": {
