@@ -32,10 +32,13 @@ const createWarframe = async (req, res) => {
 }
 
 // Delete one
-const deleteWarframe = (req, res) => {
-    res.status(200).send({
-        mssg: "IT DELETED ONE"
-    })
+const deleteWarframe = async (req, res) => {
+    const { name } = req.params
+    const warframe = await Warframe.findOneAndDelete({ name })
+    if (!warframe) {
+        return res.status(404).send({ "error": "Can not find warframe with that name" })
+    }
+    res.status(200).send(warframe)
 }
 
 // Update one
