@@ -41,10 +41,13 @@ const deleteWarframe = async (req, res) => {
 }
 
 // Update one
-const updateWarframe = (req, res) => {
-    res.status(200).send({
-        mssg: "IT PATCHED ONE"
-    })
+const updateWarframe = async (req, res) => {
+    const { name } = req.params
+    const warframe = await Warframe.findOneAndUpdate({ name }, req.body)
+    if (!warframe) {
+        return res.status(404).send({ "error": "Can not find warframe with that name" })
+    }
+    res.status(200).send(warframe)
 }
 
 // Exports
