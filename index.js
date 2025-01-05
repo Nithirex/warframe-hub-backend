@@ -18,7 +18,7 @@ app.use(express.json())
 
 // Middleware to deal with CORS
 app.use(cors({
-    origin: ['http://localhost:3000']
+    origin: process.env.CORS
 }));
 
 // Using routes
